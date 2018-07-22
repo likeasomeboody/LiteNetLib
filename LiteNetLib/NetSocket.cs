@@ -270,7 +270,10 @@ namespace LiteNetLib
             //Close IPv6
             if (Thread.CurrentThread != _threadv6)
             {
-                _threadv6.Join();
+                if(_threadv6 != null)
+                {
+                    _threadv6.Join();
+                }
             }
             if (_udpSocketv6 != null)
             {

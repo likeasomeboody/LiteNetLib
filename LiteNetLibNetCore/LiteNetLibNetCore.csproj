@@ -50,4 +50,8 @@
     <Folder Include="Utils\" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mkdir $(SolutionDir)..\Assets\AscendReality\Plugins\NETCore&#xD;&#xA;copy $(TargetDir)*.dll $(SolutionDir)..\Assets\AscendReality\Plugins\NETCore\*&#xD;&#xA;copy $(TargetDir)*.pdb $(SolutionDir)..\Assets\AscendReality\Plugins\NETCore\*" />
+  </Target>
+
 </Project>

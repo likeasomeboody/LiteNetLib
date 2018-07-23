@@ -74,4 +74,8 @@
     <Compile Include="Utils\NetSerializerExceptions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)*.dll $(SolutionDir)..\Assets\AscendReality\Plugins\*
+copy $(TargetDir)*.pdb $(SolutionDir)..\Assets\AscendReality\Plugins\*</PostBuildEvent>
+  </PropertyGroup>
 </Project>

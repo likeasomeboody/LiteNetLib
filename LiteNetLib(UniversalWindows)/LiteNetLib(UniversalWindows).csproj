@@ -7,8 +7,8 @@
     <ProjectGuid>{D987B9FB-2927-4E78-A3E1-0B87BFD15BBE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LiteNetLib_UniversalWindows_</RootNamespace>
-    <AssemblyName>LiteNetLib%28UniversalWindows%29</AssemblyName>
+    <RootNamespace>LiteNetLib</RootNamespace>
+    <AssemblyName>LiteNetLib</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
@@ -143,6 +143,12 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir $(SolutionDir)..\Assets\AscendReality\Plugins\UniversalWindows
+
+copy $(TargetDir)*.dll $(SolutionDir)..\Assets\AscendReality\Plugins\UniversalWindows\*
+copy $(TargetDir)*.pdb $(SolutionDir)..\Assets\AscendReality\Plugins\UniversalWindows\*</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

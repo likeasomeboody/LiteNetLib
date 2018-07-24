@@ -20,6 +20,9 @@
     <DocumentationFile>bin\Release\netstandard1.6\LiteNetLib.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="link.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\LiteNetLib\BaseChannel.cs" Link="BaseChannel.cs" />
@@ -51,6 +54,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="link.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
 
@@ -59,5 +66,9 @@
     <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mkdir $(SolutionDir)..\Assets\AscendReality\Plugins\NETStandard&#xD;&#xA;mkdir $(SolutionDir)..\Assets\AscendReality\Plugins\NETStandard\LiteNetLib_link&#xD;&#xA;&#xD;&#xA;copy $(TargetDir)*.dll $(SolutionDir)..\Assets\AscendReality\Plugins\NETStandard\*&#xD;&#xA;copy $(TargetDir)*.pdb $(SolutionDir)..\Assets\AscendReality\Plugins\NETStandard\*&#xD;&#xA;&#xD;&#xA;copy $(ProjectDir)link.xml  $(SolutionDir)..\Assets\AscendReality\Plugins\NETStandard\LiteNetLib_link\link.xml" />
+  </Target>
 
 </Project>

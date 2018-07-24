@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--This file is required by Unity to prevent assemblies being stripped in il2cpp projects
+    This is required for any assemblies that use reflection-->
+<linker>
+  <assembly fullname="AscendReality.Core" preserve="all"/>
+  <assembly fullname="Newtonsoft.Json" preserve="all"/>
+</linker>
